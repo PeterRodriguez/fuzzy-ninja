@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Range:</b>
+  <%= @inbound_message.range_id %>
+</p>
+
+<p>
+  <b>Message:</b>
+  <%= @inbound_message.message %>
+</p>
+
+<p>
+  <b>Sender:</b>
+  <%= @inbound_message.sender %>
+</p>
+
+<p>
+  <b>Recipient:</b>
+  <%= @inbound_message.recipient %>
+</p>
+
+
+<%= link_to 'Edit', edit_inbound_message_path(@inbound_message) %> |
+<%= link_to 'Back', inbound_messages_path %>

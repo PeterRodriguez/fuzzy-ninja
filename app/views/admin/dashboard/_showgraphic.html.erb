@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+   </head>
+   <body>
+    <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto">
+      <script type="text/javascript">
+        $(document).ready(function() { 
+          var chart = new Highcharts.Chart({
+            chart: {
+              renderTo: 'container',
+              type: 'line'
+            },
+            title: {
+              text: 'Last Two Weeks Messages'
+            },
+            xAxis: {
+              categories: ['<%=13.days.ago.strftime("%a")%>','<%=12.days.ago.strftime("%a")%>','<%=11.days.ago.strftime("%a")%>','<%=10.days.ago.strftime("%a")%>','<%=9.days.ago.strftime("%a")%>','<%=8.days.ago.strftime("%a")%>','<%=7.days.ago.strftime("%a")%>','<%=6.days.ago.strftime("%a")%>','<%=5.days.ago.strftime("%a")%>','<%=4.days.ago.strftime("%a")%>','<%=3.days.ago.strftime("%a")%>','<%=2.days.ago.strftime("%a")%>','<%=Date.yesterday.strftime("%a")%>','<%=Date.today.strftime("%a")%>']
+            },
+            yAxis: {
+              title: {
+                text: 'Number of messages'
+              }
+            },
+            tooltip: {
+              formatter: function() {
+                return '<b>'+ this.series.name +'</b><br/>'+
+                this.x +': '+ this.y +' messages';
+              }
+            },
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                }
+            },
+            series: [{
+              color: '#FF0000',
+              name: 'Sent',
+              data: [<%= InboundMessage.where("date(created_at) = ?", 13.days.ago.strftime("%Y-%m-%d")).count %>, <%= InboundMessage.where("date(created_at) = ?", 12.days.ago.strftime("%Y-%m-%d")).count %>, <%= InboundMessage.where("date(created_at) = ?", 11.days.ago.strftime("%Y-%m-%d")).count %>, <%= InboundMessage.where("date(created_at) = ?", 10.days.ago.strftime("%Y-%m-%d")).count %>, <%= InboundMessage.where("date(created_at) = ?", 9.days.ago.strftime("%Y-%m-%d")).count %>, <%= InboundMessage.where("date(created_at) = ?", 8.days.ago.strftime("%Y-%m-%d")).count %>, <%= InboundMessage.where("date(created_at) = ?", 7.days.ago.strftime("%Y-%m-%d")).count %>, <%= InboundMessage.where("date(created_at) = ?", 6.days.ago.strftime("%Y-%m-%d")).count %>, <%= InboundMessage.where("date(created_at) = ?", 5.days.ago.strftime("%Y-%m-%d")).count %>, <%= InboundMessage.where("date(created_at) = ?", 4.days.ago.strftime("%Y-%m-%d")).count %>, <%= InboundMessage.where("date(created_at) = ?", 3.days.ago.strftime("%Y-%m-%d")).count %>, <%= InboundMessage.where("date(created_at) = ?", 2.days.ago.strftime("%Y-%m-%d")).count %>, <%=  InboundMessage.where("date(created_at) = ?",Date.yesterday).count %>, <%= InboundMessage.where("date(created_at) = ?", Date.today).count %>]
+            }]
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>

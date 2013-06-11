@@ -1,0 +1,33 @@
+<%= form_for(@inbound_message) do |f| %>
+  <% if @inbound_message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@inbound_message.errors.count, "error") %> prohibited this inbound_message from being saved:</h2>
+
+      <ul>
+      <% @inbound_message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :range_id %><br />
+    <%= f.number_field :range_id %>
+  </div>
+  <div class="field">
+    <%= f.label :message %><br />
+    <%= f.text_area :message %>
+  </div>
+  <div class="field">
+    <%= f.label :sender %><br />
+    <%= f.text_area :sender %>
+  </div>
+  <div class="field">
+    <%= f.label :recipient %><br />
+    <%= f.text_area :recipient %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

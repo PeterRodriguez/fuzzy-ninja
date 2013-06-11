@@ -1,0 +1,27 @@
+<h1>Listing number_ranges</h1>
+
+<table>
+  <tr>
+    <th>Client</th>
+    <th>Range start</th>
+    <th>Range end</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @number_ranges.each do |number_range| %>
+  <tr>
+    <td><%= number_range.client_id %></td>
+    <td><%= number_range.range_start %></td>
+    <td><%= number_range.range_end %></td>
+    <td><%= link_to 'Show', number_range %></td>
+    <td><%= link_to 'Edit', edit_number_range_path(number_range) %></td>
+    <td><%= link_to 'Destroy', number_range, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Number range', new_number_range_path %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Client:</b>
+  <%= @number_range.client_id %>
+</p>
+
+<p>
+  <b>Range start:</b>
+  <%= @number_range.range_start %>
+</p>
+
+<p>
+  <b>Range end:</b>
+  <%= @number_range.range_end %>
+</p>
+
+
+<%= link_to 'Edit', edit_number_range_path(@number_range) %> |
+<%= link_to 'Back', number_ranges_path %>

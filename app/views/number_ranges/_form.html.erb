@@ -1,0 +1,28 @@
+<%= form_for(@number_range) do |f| %>
+  <% if @number_range.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@number_range.errors.count, "error") %> prohibited this number_range from being saved:</h2>
+
+      <ul>
+      <% @number_range.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :client_id %><br />
+    <%= f.text_field :client_id %>
+  </div>
+  <div class="field">
+    <%= f.label :range_start %><br />
+    <%= f.text_field :range_start %>
+  </div>
+  <div class="field">
+    <%= f.label :range_end %><br />
+    <%= f.number_field :range_end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
