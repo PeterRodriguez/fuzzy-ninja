@@ -15,6 +15,8 @@ ActiveAdmin.register InboundMessage do
   #          :select => "number_ranges.*", :group =>
   #          "number_ranges.id")}
 
+  #InboundMessage.find_by_number_range(14000..14500)
+
 
   index do
     selectable_column

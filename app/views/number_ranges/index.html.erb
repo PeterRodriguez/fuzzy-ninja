@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Client</th>
+    <th>User</th>
     <th>Range start</th>
     <th>Range end</th>
     <th></th>
@@ -12,7 +12,7 @@
 
 <% @number_ranges.each do |number_range| %>
   <tr>
-    <td><%= number_range.client_id %></td>
+    <td><%= number_range.user_id %></td>
     <td><%= number_range.range_start %></td>
     <td><%= number_range.range_end %></td>
     <td><%= link_to 'Show', number_range %></td>
