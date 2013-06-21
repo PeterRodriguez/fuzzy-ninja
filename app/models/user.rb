@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+  scope :admins, lambda{ where("role", "admin") }
+  scope :clients, lambda{ where("role", "client") }
+
   has_many :number_ranges, :dependent => :destroy
 
 

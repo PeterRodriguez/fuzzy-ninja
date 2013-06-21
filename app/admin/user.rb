@@ -1,7 +1,17 @@
 ActiveAdmin.register User do
 
+  scope :all, :default => true
+  scope :admins do |users|
+    users.where(:role => "admin")
+  end
+  scope :clients do |users|
+    users.where(:role=> "client")
+  end
+  scope :resellers do |users|
+    users.where(:role=> "reseller")
+  end
+
   filter :email
-  filter :role
   filter :created_at, :as => :date_range
 
   index do
