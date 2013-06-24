@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :role
 
 
-  ROLES = %w[admin client reseller]
+  ROLES = %w(reseller client admin)
 
   def role?(base_role)
     return false unless role # A user have a role attribute. If not set, the user does not have any roles.
