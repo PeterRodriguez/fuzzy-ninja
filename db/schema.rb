@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130607103549) do
+ActiveRecord::Schema.define(:version => 20130613095608) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(:version => 20130607103549) do
   end
 
   create_table "number_ranges", :force => true do |t|
-    t.integer  "client_id"
+    t.integer  "user_id"
     t.string   "range_start", :limit => 17
     t.string   "range_end",   :limit => 17
     t.datetime "created_at",                :null => false
@@ -57,9 +57,16 @@ ActiveRecord::Schema.define(:version => 20130607103549) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+<<<<<<< HEAD
     t.datetime "created_at",                              :null => false
     t.datetime "updated_at",                              :null => false
     t.string   "role",                   :default => "0", :null => false
+=======
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.boolean  "superadmin",             :default => false, :null => false
+    t.string   "role"
+>>>>>>> other
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

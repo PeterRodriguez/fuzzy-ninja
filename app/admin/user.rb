@@ -1,10 +1,36 @@
 ActiveAdmin.register User do
 
+  scope :all, :default => true
+  scope :admins do |users|
+    users.where(:role => "admin")
+  end
+  scope :clients do |users|
+    users.where(:role=> "client")
+  end
+  scope :resellers do |users|
+    users.where(:role=> "reseller")
+  end
+
+  filter :email
+  filter :created_at, :as => :date_range
+
+  index do
+    selectable_column
+    column :email
+    column :current_sign_in_at
+    column :last_sign_in_at
+    column :created_at
+    column :role
+    column :sign_in_count
+    default_actions
+  end
+
   form do |f|
     f.inputs "User Details" do
       f.input :email
       f.input :password
       f.input :password_confirmation
+      f.input :role
       f.input :superadmin, :label => "Super Administrator"
     end
     f.buttons
