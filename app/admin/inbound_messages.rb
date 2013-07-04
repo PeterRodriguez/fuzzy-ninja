@@ -6,8 +6,6 @@ ActiveAdmin.register InboundMessage do
 
   filter :created_at, :as => :date_range
   filter :number_range,  :as => :check_boxes
-  #filter :number_range, :label => "Number Range Starting With", :as => :starts_with
-  #filter :number_range, :label => "Number Range Ending With", :as => :ends_with
 
 
   # InboundMessage.find(:all,

@@ -3,8 +3,11 @@ ActiveAdmin.register NumberRange do
 	menu :label => "Client Statistics"
 	menu :priority => 2
 
-
-	#filter :created_at, :as => :date_range
+  filter :name, :as => :string
+  filter :user, :label => 'Client', :collection => proc { User.all }
+	filter :created_at, :as => :date_range
+  filter :range_start, :label => "Number Range Starting With"#, :as => :number
+  filter :range_end, :label => "Number Range Ending With"#, :as => :number
 
 	index do
     selectable_column

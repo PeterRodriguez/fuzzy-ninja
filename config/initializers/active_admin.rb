@@ -1,5 +1,16 @@
 ActiveAdmin.setup do |config|
 
+  ActiveAdmin::ResourceController.class_eval do
+  protected
+ 
+    def current_ability
+      @current_ability ||= AdminAbility.new(current_user)
+    end
+  end
+
+  #config.authorization_adapter = ActiveAdmin::CanCanAdapter
+
+
   # == Site Title
   #
   # Set the title that is displayed on the main layout
